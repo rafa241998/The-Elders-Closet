@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AccountPageRoutingModule } from './account-routing.module';
+import { FavoritesPageRoutingModule } from './favorites-routing.module';
 
-import { AccountPage } from './account.page';
+import { FavoritesPage } from './favorites.page';
+
 import { CustomHeaderComponent } from '../custom-header/custom-header.component';
 
 @NgModule({
@@ -14,8 +15,8 @@ import { CustomHeaderComponent } from '../custom-header/custom-header.component'
     CommonModule,
     FormsModule,
     IonicModule,
-    AccountPageRoutingModule
+    FavoritesPageRoutingModule
   ],
-  declarations: [AccountPage, CustomHeaderComponent]
+  declarations: [FavoritesPage, CustomHeaderComponent]
 })
-export class AccountPageModule {}
+export class FavoritesPageModule {}

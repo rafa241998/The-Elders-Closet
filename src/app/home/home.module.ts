@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AccountPageRoutingModule } from './account-routing.module';
+import { HomePageRoutingModule } from './home-routing.module';
 
-import { AccountPage } from './account.page';
+import { HomePage } from './home.page';
 import { CustomHeaderComponent } from '../custom-header/custom-header.component';
 
 @NgModule({
@@ -14,8 +14,8 @@ import { CustomHeaderComponent } from '../custom-header/custom-header.component'
     CommonModule,
     FormsModule,
     IonicModule,
-    AccountPageRoutingModule
+    HomePageRoutingModule
   ],
-  declarations: [AccountPage, CustomHeaderComponent]
+  declarations: [HomePage, CustomHeaderComponent]
 })
-export class AccountPageModule {}
+export class HomePageModule {}
