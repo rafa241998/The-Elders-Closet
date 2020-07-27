@@ -1,18 +1,13 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>category-list</ion-title>
-  </ion-toolbar>
+  <app-custom-header></app-custom-header>
 </ion-header>
 
 <ion-content>
   <ion-grid>
     <ion-row >
-      <ion-col *ngFor="let item of results; let i = index">
+      <ion-col *ngFor="let item of results; let i = index" [routerLink]="['/tabs', 'product', item.id]">
         <ion-card>
-          <img src="{{'http://127.0.0.1:8000/api/products/'+ item.id + '/image' }}"/>
-          <ion-card-header>
-                     
-          </ion-card-header>
+          <img src="{{'http://127.0.0.1:8000/api/products/'+ item.id + '/image' }}"/>          
           <ion-card-content>
             <ion-card-title>{{ item.title }}</ion-card-title>
             <ion-card-subtitle>{{ item.price }}</ion-card-subtitle> 

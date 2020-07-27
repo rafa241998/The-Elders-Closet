@@ -9,8 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./category-list.page.scss'],
 })
 export class CategoryListPage implements OnInit {
-  results: Observable<any>;
-  image = null;
+  results: Observable<any>;  
   constructor(private activatedRoute :ActivatedRoute, private categoryservice :CategoryService) {}
 
   ngOnInit() {
@@ -18,13 +17,7 @@ export class CategoryListPage implements OnInit {
     // Get the information from the API
     this.categoryservice.getCategoryList(id).subscribe(result => {
       this.results = result;
-      console.log(this.results);
-      this.results.forEach(product => {
-        this.categoryservice.getProductImage(product.id).subscribe(result => {
-          this.image = result;
-          console.log(this.image);
-        });
-      });
+      console.log(this.results);      
     });
 
     

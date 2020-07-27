@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CategoryListPageRoutingModule } from './category-list-routing.module';
+import { ProductPageRoutingModule } from './product-routing.module';
 
-import { CategoryListPage } from './category-list.page';
+import { ProductPage } from './product.page';
 import { CustomHeaderComponent } from '../custom-header/custom-header.component';
 
 @NgModule({
@@ -14,8 +14,8 @@ import { CustomHeaderComponent } from '../custom-header/custom-header.component'
     CommonModule,
     FormsModule,
     IonicModule,
-    CategoryListPageRoutingModule
+    ProductPageRoutingModule
   ],
-  declarations: [CategoryListPage, CustomHeaderComponent]
+  declarations: [ProductPage, CustomHeaderComponent]
 })
-export class CategoryListPageModule {}
+export class ProductPageModule {}

@@ -16,6 +16,6 @@ import { CustomHeaderComponent } from '../custom-header/custom-header.component'
     IonicModule,
     CategoriesPageRoutingModule
   ],
-  declarations: [CategoriesPage,CustomHeaderComponent]
+  declarations: [CategoriesPage, CustomHeaderComponent]
 })
 export class CategoriesPageModule {}

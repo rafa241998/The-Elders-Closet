@@ -1,0 +1,31 @@
+.color-box {
+    width: 25px;
+    height: 25px; 
+    margin: 10px;  
+    border: solid white;  
+    border-width: thin;  
+}
+ion-item{
+    margin: 0px !important;
+}
+ion-label{
+    font-size: 18px;
+}
+ion-list-header{
+    font-size: 18px;
+}
+ion-button.bottom{
+    font-size: 16px;
+}
+.alert{
+    font-size: 18px;
+    color: red;    
+}
+
+.highlight {
+    border: solid white;
+}
+.size{
+    --background: rgb(117, 117, 122);    
+
+}

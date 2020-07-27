@@ -1,0 +1,24 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpHeaderResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { GlobalService } from "./global.service";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CartService {
+
+  constructor(private http: HttpClient,public global: GlobalService) { }
+  getUserCartItems(id): Observable<any> {    
+    return this.http.get('http://127.0.0.1:8000/api/users/'+ id + '/cart');
+  }   
+  setUserCartItems(id, cartItems): Observable<any> {  
+    var headers = new HttpHeaders();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    const requestOptions = new HttpHeaderResponse({ headers: headers });    
+    let postData = cartItems;
+
+    return this.http.post('http://127.0.0.1:8000/api/users/'+ id + '/cart',postData,requestOptions);
+  }  
+}
