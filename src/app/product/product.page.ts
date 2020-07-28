@@ -35,7 +35,7 @@ export class ProductPage implements OnInit {
     // Get the colors of the product
     this.productService.getProductColors(id).subscribe(result => {
       this.colors = result;
-      this.selectColor(this.colors[0].id);
+      this.selectColor(this.colors[0].color.id);
       console.log(this.colors);      
     });    
 
@@ -44,7 +44,7 @@ export class ProductPage implements OnInit {
     this.selectedColor = id;
     this.selectedSize = -1;
     this.addItem = false;
-    
+    console.log(id); 
     //Get the sizes for the color
     this.productService.getProductColorSizes(id).subscribe(result => {
       this.sizes = result;      

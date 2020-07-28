@@ -7,10 +7,11 @@ import { GlobalService } from "./global.service";
   providedIn: 'root'
 })
 export class CartService {
-
+  base_path = "http://127.0.0.1:8000/api/";
   constructor(private http: HttpClient,public global: GlobalService) { }
+  
   getUserCartItems(id): Observable<any> {    
-    return this.http.get('http://127.0.0.1:8000/api/users/'+ id + '/cart');
+    return this.http.get(this.base_path + 'users/'+ id + '/cart');
   }   
   setUserCartItems(id, cartItems): Observable<any> {  
     var headers = new HttpHeaders();
@@ -19,6 +20,15 @@ export class CartService {
     const requestOptions = new HttpHeaderResponse({ headers: headers });    
     let postData = cartItems;
 
-    return this.http.post('http://127.0.0.1:8000/api/users/'+ id + '/cart',postData,requestOptions);
+    return this.http.post(this.base_path + 'users/'+ id + '/cart',postData,requestOptions);
   }  
+  //Delete item from cart  
+  deleteItem(id) : Observable<any>{
+    return this.http
+      .delete(this.base_path + 'cartItems/' + id);
+      
+  }
+  getUserCartQuantity(id): Observable<any> {    
+    return this.http.get(this.base_path + 'users/'+ id + '/cart/quantity');
+  } 
 }

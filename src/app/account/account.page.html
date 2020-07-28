@@ -3,5 +3,51 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row class="center">
+      <ion-col>
+        <ion-card class="ion-text-center" (click)="showSearch()">
+          <ion-card-header>
+            <ion-icon name="person-circle" style="zoom:4.0;" ></ion-icon>
+          </ion-card-header>          
+          <ion-card-content>
+            TUS DATOS
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="ion-text-center">
+          <ion-card-header>          
+            <ion-icon name="receipt" style="zoom:4.0;" ></ion-icon>
+          </ion-card-header>          
+          <ion-card-content>
+            TUS COMPRAS
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card class="ion-text-center">
+          <ion-card-header>
+            <ion-icon name="navigate-circle" style="zoom:4.0;" ></ion-icon>
+          </ion-card-header>          
+          <ion-card-content>
+            DIRECCIONES
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="ion-text-center">
+          <ion-card-header>          
+            <ion-icon name="sync" style="zoom:4.0;" ></ion-icon>
+          </ion-card-header>          
+          <ion-card-content>
+            GESTIONAR
+            DEVOLUCIONES
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>    
+  </ion-grid>
 </ion-content>

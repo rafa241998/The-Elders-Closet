@@ -1,0 +1,74 @@
+<ion-header>
+ <app-custom-header></app-custom-header>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <div class="ion-padding">
+      <form [formGroup]="elForm" (submit)="addAddress()">
+        <ion-label for="line1">        
+          Línea 1:
+        </ion-label>
+        <ion-item id="rounded">
+          <ion-input type="text" formControlName="line1" id="line1"></ion-input>
+        </ion-item>
+        <div *ngIf="elForm.get('line1').touched && elForm.get('line1').hasError('required')">Obligatorio!
+        </div>
+
+        <br>
+
+        <ion-label for="line2">        
+          Línea 2:
+        </ion-label>
+        <ion-item id="rounded">
+          <ion-input type="text" formControlName="line2" id="line2"></ion-input>
+        </ion-item>        
+
+        <br>
+        
+        <ion-label for="postal_code">        
+          Código Postal:
+        </ion-label>
+        <ion-item id="rounded">
+          <ion-input type="tel" pattern="[0-9]*" formControlName="postal_code" id="postal_code"></ion-input>
+        </ion-item>
+        <div *ngIf="elForm.get('postal_code').touched && elForm.get('postal_code').hasError('required')">Obligatorio!
+        </div>
+
+        <br>
+
+        <ion-label for="city">        
+          Ciudad:
+        </ion-label>
+        <ion-item id="rounded">
+          <ion-input type="text" formControlName="city" id="city"></ion-input>
+        </ion-item>
+        <div *ngIf="elForm.get('city').touched && elForm.get('city').hasError('required')">Obligatorio!
+        </div>
+
+        <ion-label for="country">        
+          Pais:
+        </ion-label>
+        <ion-item id="rounded">
+          <ion-input type="text" formControlName="country" id="country"></ion-input>
+        </ion-item>
+        <div *ngIf="elForm.get('country').touched && elForm.get('country').hasError('required')">Obligatorio!
+        </div>
+
+        <ion-label for="phone_number">        
+          Telefono:
+        </ion-label>
+        <ion-item id="rounded">
+          <ion-input type="tel" pattern="[0-9]*" formControlName="phone_number" id="phone_number"></ion-input>
+        </ion-item>
+        <div *ngIf="elForm.get('phone_number').touched && elForm.get('phone_number').hasError('required')">Obligatorio!
+        </div>
+
+        
+
+        <ion-button type="submit" [disabled]="!elForm.valid">Añadir Dirección</ion-button>
+        
+      </form>
+    </div>
+  </ion-card>
+</ion-content>

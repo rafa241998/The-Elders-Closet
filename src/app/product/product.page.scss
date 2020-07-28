@@ -11,8 +11,14 @@ ion-item{
 ion-label{
     font-size: 18px;
 }
+ion-label.price{
+    font-size: 25px;
+}
 ion-list-header{
     font-size: 18px;
+}
+ion-list-header.description{
+    font-size: 15px;
 }
 ion-button.bottom{
     font-size: 16px;

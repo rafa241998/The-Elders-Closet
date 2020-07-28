@@ -1,0 +1,113 @@
+<ion-header>
+  <app-custom-header></app-custom-header>
+</ion-header>
+
+<ion-content>
+          
+  <ion-item class="ion-text-center">
+    <ion-title>Pago </ion-title>                     
+    
+  </ion-item>                       
+                                   
+ 
+<ion-grid>
+  <ion-row>
+    <ion-item>
+      <ion-col class="ion-align-items-center" size="9">
+        <ion-item>Introduzca los datos de su tarjeta </ion-item>
+      </ion-col>
+      <ion-col size="3">      
+        <ion-icon  name="card-outline" style="zoom:3.0;"></ion-icon>  
+      </ion-col>
+    </ion-item>
+  
+    
+  
+  </ion-row>
+</ion-grid>
+<ion-card>
+  <div class="ion-padding">
+    <form [formGroup]="elForm" (submit)="doPayment()">
+      
+      <ion-label for="holder">        
+        Titular de la tarjeta
+      </ion-label>
+      <ion-item id="rounded">            
+        <ion-input type="text" formControlName="holder" id="holder"></ion-input>
+      </ion-item>
+      <div *ngIf="elForm.get('holder').touched && elForm.get('holder').hasError('required')">Obligatorio!
+      </div>
+
+      <br>
+
+      <ion-label for="card">        
+       Número de la tarjeta
+      </ion-label>
+      <ion-item id="rounded">
+        <ion-input pattern="[0-9]*" type="tel" formControlName="card" id="card"></ion-input>
+      </ion-item>        
+      <div *ngIf="elForm.get('card').touched && elForm.get('card').hasError('required')">Obligatorio!
+      </div>
+      <br>
+      
+      <ion-label for="month">        
+        Mes de caducidad:
+      </ion-label>
+      <ion-item id="rounded">
+        <ion-select value="12" formControlName="month" id="month">
+          <ion-select-option value="1">Enero</ion-select-option>
+          <ion-select-option value="2">Febrero</ion-select-option>
+          <ion-select-option value="3">Marzo</ion-select-option>
+          <ion-select-option value="4">Abril</ion-select-option>
+          <ion-select-option value="5">Mayo</ion-select-option>
+          <ion-select-option value="6">Junio</ion-select-option>
+          <ion-select-option value="7">Julio</ion-select-option>
+          <ion-select-option value="8">Agosto</ion-select-option>
+          <ion-select-option value="9">Septiembre</ion-select-option>
+          <ion-select-option value="10">Octubre</ion-select-option>
+          <ion-select-option value="11">Noviembre</ion-select-option>
+          <ion-select-option value="12">Diciembre</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="elForm.get('month').touched && elForm.get('month').hasError('required')">Obligatorio!
+      </div>
+
+      <br>
+
+      <ion-label for="year">        
+        Año de caducidad:
+      </ion-label>
+      <ion-item id="rounded">
+        <ion-select value="1996" formControlName="year" id="year">
+          <ion-select-option value="2020">2020</ion-select-option>
+          <ion-select-option value="2021">2021</ion-select-option>
+          <ion-select-option value="2022">2022</ion-select-option>
+          <ion-select-option value="2023">2023</ion-select-option>
+          <ion-select-option value="2024">2024</ion-select-option>
+          <ion-select-option value="2025">2025</ion-select-option>
+          <ion-select-option value="2026">2026</ion-select-option>
+          <ion-select-option value="2027">2027</ion-select-option>
+          <ion-select-option value="2028">2028</ion-select-option>
+          <ion-select-option value="2029">2029</ion-select-option>
+          <ion-select-option value="2030">2030</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="elForm.get('year').touched && elForm.get('year').hasError('required')">Obligatorio!
+      </div>
+
+      <ion-label for="cvv">        
+        CVV:
+      </ion-label>
+      <ion-item id="rounded">
+        <ion-input pattern="[0-9]*" type="tel" formControlName="cvv" id="cvv"></ion-input>
+      </ion-item>
+      <div *ngIf="elForm.get('cvv').touched && elForm.get('cvv').hasError('required')">Obligatorio!
+      </div>
+      
+      <ion-button expand="full" type="submit" [disabled]="!elForm.valid">CONFIRMAR PAGO</ion-button>
+      
+    </form>
+  </div>
+</ion-card>
+  
+</ion-content>

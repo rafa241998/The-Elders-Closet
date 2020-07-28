@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { GlobalService } from "../services/global.service";
 import { CartService } from 'src/app/services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-custom-header',
@@ -10,15 +11,26 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CustomHeaderComponent implements OnInit {
 
-  constructor( public navCtrl: NavController, public global: GlobalService, private cartService :CartService) { }
+  constructor( public navCtrl: NavController, public global: GlobalService, private cartService :CartService,private router: Router) { }
 
   ngOnInit() {
     
     //Get elements of the cart
-    this.cartService.getUserCartItems(1).subscribe(result => {
-      this.global.cartItems = result.length;     
+    this.cartService.getUserCartQuantity(1).subscribe(result => {
+      this.global.cartItems = result;     
       console.log(this.global.cartItems);      
     });
+     //Get elements of the cart
+     this.cartService.getUserCartQuantity(1).subscribe(result => {
+      this.global.cartItems = result;     
+      console.log(this.global.cartItems);      
+    });
+  }
+  showHome() {
+    this.router.navigateByUrl("/tabs/home");
+  }
+  openCart(){
+    this.router.navigateByUrl("/tabs/cart");
   }
 
 }

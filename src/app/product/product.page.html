@@ -6,16 +6,38 @@
   <ion-list>      
     <ion-img *ngIf="selectedColor != 0" style="padding-left: 6px; padding-right: 6px;" src="{{'http://127.0.0.1:8000/api/productColors/'+ selectedColor + '/image' }}"></ion-img>  
     <ion-grid>
+      <!-- Favoritos -->
       <ion-row>
-        <ion-col size="8">
-          <ion-list-header style="font-size: 18px;">{{product?.title}}</ion-list-header>
+        <ion-col>
+          
+        </ion-col>
+        <ion-col> 
+          <ion-button class= "bottom" expand="full" color="warning">
+            AÑADIR A FAVORITOS ⭐
+          </ion-button>                                                 
+        </ion-col>        
+      </ion-row>
+      <ion-row>
+        <ion-col size="7">
+          <ion-list-header >{{product?.title}}</ion-list-header>
         </ion-col>
         <ion-col>
           <ion-item class="ion-text-end">
-            <ion-label>{{product?.price}}</ion-label>
+            <ion-label class="price">{{product?.price}} €</ion-label>
           </ion-item>
         </ion-col>        
-      </ion-row>
+      </ion-row> 
+      <!-- Description -->
+      <ion-row>
+        <ion-col>
+          <ion-list-header>Descripción</ion-list-header>
+        </ion-col>              
+      </ion-row> 
+      <ion-row>
+        <ion-col size="8"> 
+          <ion-list-header class="description">{{product?.description}}</ion-list-header>                                                 
+        </ion-col>
+      </ion-row>            
       <!-- Color -->
       <ion-row>
         <ion-col>
@@ -23,8 +45,8 @@
         </ion-col>
         <ion-col> 
           <ion-row>            
-            <ion-col *ngFor="let item of colors" (click)="selectColor(item.id)">
-              <div class="color-box" style="background-color: {{item.color.hex}};" [ngStyle]="{'border':selectedColor == item.id ? 'solid white' : null }"></div> 
+            <ion-col *ngFor="let item of colors" (click)="selectColor(item.color.id)">
+              <div class="color-box" style="background-color: {{item.color.hex}};" [ngStyle]="{'border':selectedColor == item.color.id ? 'solid white' : null }"></div> 
             </ion-col>              
           </ion-row>                                                        
         </ion-col>        
