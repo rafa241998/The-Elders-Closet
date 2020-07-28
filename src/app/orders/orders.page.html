@@ -1,28 +1,33 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>orders</ion-title>
-  </ion-toolbar>
+  <app-custom-header></app-custom-header>
 </ion-header>
 
 <ion-content>
-<list>
-  <ion-item>
+
+  
   <ion-grid>
-    <ion-row >
-      <ion-col>        
-          <ion-label>
-            <h2>Pedido nº 23</h2>
-            <h3>Estado: Completo</h3>
-            <p>Total: 45.34 </p>
-          </ion-label>        
-      </ion-col>
-      <ion-col>        
+    <ion-row  *ngFor="let order of orders">
+      <ion-col>
+        <ion-row class="title">
+          <ion-title > Pedido nº {{order.id}}</ion-title>                         
+        </ion-row>
         <ion-row>
-          <ion-button expand="full">Ver pedido</ion-button>
-        </ion-row>        
+          <ion-col >        
+            <ion-label>            
+              <h2>Estado: {{order.status}}</h2>
+              <h2>Total: {{order.total}} €</h2>
+              <h2>Fecha: {{order.orderDate}} </h2>
+            </ion-label>        
+        </ion-col>
+        <ion-col>        
+          <ion-row>
+            <ion-button  [routerLink]="['/tabs', 'orders', order.id]" expand="full">Ver pedido</ion-button>
+          </ion-row>        
+        </ion-col>
+        </ion-row>
       </ion-col>
+      
     </ion-row>
   </ion-grid>
-</ion-item>
-</list>
+
 </ion-content>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-favorites',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesPage implements OnInit {
 
-  constructor() { }
+  products: Observable<any>;
+  constructor(private productService :ProductService) { }
 
   ngOnInit() {
+    // Get the favorite products
+    this.productService.getFavoriteProducts(1).subscribe(result => {
+      this.products = result;
+      console.log(this.products);      
+    });
   }
 
 }

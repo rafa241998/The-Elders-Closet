@@ -56,6 +56,14 @@ const routes: Routes = [
         loadChildren: () => import('../correct-payment/correct-payment.module').then(m => m.CorrectPaymentPageModule)
       },
       {
+        path: 'orders',
+        loadChildren: () => import('../orders/orders.module').then(m => m.OrdersPageModule)
+      },
+      {
+        path: 'orders/:id',
+        loadChildren: () => import('../order-items/order-items.module').then(m => m.OrderItemsPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'

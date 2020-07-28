@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { OrdersPageRoutingModule } from './orders-routing.module';
+import { OrderItemsPageRoutingModule } from './order-items-routing.module';
 
-import { OrdersPage } from './orders.page';
+import { OrderItemsPage } from './order-items.page';
 import { CustomHeaderComponent } from '../custom-header/custom-header.component';
 
 @NgModule({
@@ -14,8 +14,8 @@ import { CustomHeaderComponent } from '../custom-header/custom-header.component'
     CommonModule,
     FormsModule,
     IonicModule,
-    OrdersPageRoutingModule
+    OrderItemsPageRoutingModule
   ],
-  declarations: [OrdersPage,CustomHeaderComponent]
+  declarations: [OrderItemsPage, CustomHeaderComponent]
 })
-export class OrdersPageModule {}
+export class OrderItemsPageModule {}

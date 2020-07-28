@@ -9,7 +9,14 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
   
-  getProduct(id): Observable<any> {
-    return this.http.get('http://127.0.0.1:8000/api/products/'+ id );
+  getOrders(id): Observable<any> {
+    return this.http.get('http://127.0.0.1:8000/api/users/'+ id +'/orders');
+  }
+
+  getProductOrders(id): Observable<any> {
+    return this.http.get('http://127.0.0.1:8000/api/orders/'+ id +'/orderItems');
+  }
+  getUserCartItems(id): Observable<any> {    
+    return this.http.get('cscs'+ 'users/'+ id + '/cart');
   }
 }

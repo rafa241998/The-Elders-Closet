@@ -6,7 +6,7 @@
   <ion-grid>
     <ion-row class="center">
       <ion-col>
-        <ion-card class="ion-text-center" (click)="showSearch()">
+        <ion-card class="ion-text-center">
           <ion-card-header>
             <ion-icon name="person-circle" style="zoom:4.0;" ></ion-icon>
           </ion-card-header>          
@@ -16,7 +16,7 @@
         </ion-card>
       </ion-col>
       <ion-col>
-        <ion-card class="ion-text-center">
+        <ion-card class="ion-text-center" [routerLink]="['/tabs', 'orders']">
           <ion-card-header>          
             <ion-icon name="receipt" style="zoom:4.0;" ></ion-icon>
           </ion-card-header>          
