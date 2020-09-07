@@ -16,7 +16,7 @@
         </ion-card>
       </ion-col>
       <ion-col>
-        <ion-card class="ion-text-center">
+        <ion-card class="ion-text-center" (click)="showCart()">
           <ion-card-header>          
             <ion-icon name="cart" style="zoom:4.0;" ></ion-icon>
           </ion-card-header>          
@@ -28,7 +28,7 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-card class="ion-text-center">
+        <ion-card class="ion-text-center" (click)="showAccount()">
           <ion-card-header>
             <ion-icon name="person" style="zoom:4.0;" ></ion-icon>
           </ion-card-header>          
@@ -38,7 +38,7 @@
         </ion-card>
       </ion-col>
       <ion-col>
-        <ion-card class="ion-text-center">
+        <ion-card class="ion-text-center" (click)="showFavorites()">
           <ion-card-header>          
             <ion-icon name="star" style="zoom:4.0;" ></ion-icon>
           </ion-card-header>          
@@ -50,7 +50,7 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-card class="ion-text-center">
+        <ion-card class="ion-text-center" (click)="showOrders()">
           <ion-card-header>
             <ion-icon name="receipt" style="zoom:4.0;" ></ion-icon>
           </ion-card-header>          
@@ -62,10 +62,10 @@
       <ion-col>
         <ion-card class="ion-text-center">
           <ion-card-header>          
-            <ion-icon name="trending-up" style="zoom:4.0;" ></ion-icon>
+            <ion-icon name="call" style="zoom:4.0;" ></ion-icon>
           </ion-card-header>          
           <ion-card-content>
-            TENDENCIAS
+            ASISTENCIA TELEFONICA
           </ion-card-content>
         </ion-card>
       </ion-col>

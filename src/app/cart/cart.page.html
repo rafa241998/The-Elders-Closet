@@ -8,14 +8,14 @@
       <!--prueba-->
       <ion-grid>
         <ion-row>
-          <ion-col>
+          <ion-col size="5">
             <img  src="{{'http://127.0.0.1:8000/api/productColors/'+ item.color_size.product_color.id + '/image' }}" alt="" item-left class="product-thumb" />
           </ion-col>
-          <ion-col >
-            <ion-row class="title ion-align-items-start">
+          <ion-col size="7">
+            <ion-row  class="title ion-align-items-start">
               <ion-col >
                 <ion-item>
-                  <ion-label class= "bigger">
+                  <ion-label class= "ion-text-wrap bigger">
                     {{item.color_size.product_color.product.title}}  
                   </ion-label> 
                 </ion-item>   
@@ -63,7 +63,7 @@
     <ion-item >
       <ion-label class= "bigger" >
         <strong>Total: </strong>
-        <span > {{finalValue}} €</span>
+        <span > {{finalValue | number}} €</span>
       </ion-label>
       <ion-button [disabled]="finalValue == 0" color="danger" size="default" (click)="goToShipping()" >        
         Continuar

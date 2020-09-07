@@ -7,6 +7,8 @@ import { CartItem } from '../models/cart-item';
 import { Product } from '../models/product';
 import { ColorSize } from '../models/color-size';
 import { GlobalService } from "../services/global.service";
+import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 
 
@@ -23,13 +25,21 @@ export class ProductPage implements OnInit {
   selectedColor: number = 0;
   selectedSize: number;
   addItem: boolean;
-  constructor(private activatedRoute :ActivatedRoute, private productService :ProductService, private cartService :CartService,public global: GlobalService) { }
+  isFavorite: boolean = false;
+  constructor(private activatedRoute :ActivatedRoute, private productService :ProductService, private cartService :CartService,public global: GlobalService,public toastController: ToastController, private router: Router) { }
 
   ngOnInit() {    
     let id = Number(this.activatedRoute.snapshot.paramMap.get('id'))
     // Get the product data
     this.productService.getProduct(id).subscribe(result => {
-      this.product = result;      
+      this.product = result;   
+       // Check if product in favorites of user
+      this.productService.checkFavoriteProduct(this.product.id).subscribe(result => {
+        if (result == true){
+          this.isFavorite = true;
+        }
+        console.log(result);      
+      });   
       console.log(this.product);      
     });
     // Get the colors of the product
@@ -38,6 +48,7 @@ export class ProductPage implements OnInit {
       this.selectColor(this.colors[0].color.id);
       console.log(this.colors);      
     });    
+   
 
   }
   selectColor(id: number){
@@ -55,7 +66,30 @@ export class ProductPage implements OnInit {
     this.addItem = false;
     this.selectedSize = id;     
   }
-  addToCart(){
+  async addToCart(){
+    this.addItem = true;
+    if(this.selectedSize != -1){
+      let cartItem: CartItem={
+        "cart_id": 1,
+        "color_size_id": this.selectedSize,
+        "price": this.product.price,
+        "quantity": 1
+      }
+      const toast = await this.toastController.create({
+        message: "Item añadido al carrito",        
+        duration: 1000,
+      });
+      this.cartService.setUserCartItems(1,cartItem).subscribe(result => {  
+        this.global.cartItems++;
+        toast.present();           
+        console.log(result);      
+      }, (err) => {
+        console.log(err);
+      });            
+    }
+    
+  }
+  goToCart(){
     this.addItem = true;
     if(this.selectedSize != -1){
       let cartItem: CartItem={
@@ -65,16 +99,31 @@ export class ProductPage implements OnInit {
         "quantity": 1
       }
       this.cartService.setUserCartItems(1,cartItem).subscribe(result => {  
-        this.global.cartItems++;    
+        this.global.cartItems++;             
         console.log(result);      
       }, (err) => {
         console.log(err);
       });
-    }
+      this.router.navigateByUrl("/tabs/cart");
+    }    
+  }
+  addToFavorites(id){
+    this.isFavorite = true;
+    this.productService.setFavoriteProduct(id).subscribe(result => {           
+      console.log(result);      
+    }, (err) => {
+      console.log(err);
+    });
     
   }
-  goToCart(id:number){
-    this.addItem = true;
+  deleteFromFavorites(id){
+    this.isFavorite = false;
+    this.productService.deleteFavoriteProduct(id).subscribe(result => {           
+      console.log(result);      
+    }, (err) => {
+      console.log(err);
+    });
+    
   }
 
 }

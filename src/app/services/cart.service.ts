@@ -25,8 +25,12 @@ export class CartService {
   //Delete item from cart  
   deleteItem(id) : Observable<any>{
     return this.http
-      .delete(this.base_path + 'cartItems/' + id);
-      
+      .delete(this.base_path + 'cartItems/' + id);      
+  }
+  //Delete all cart items
+  deleteCartItems(userId) : Observable<any>{
+    return this.http
+      .delete(this.base_path + 'users/' + userId +'/cart/cartItems');      
   }
   getUserCartQuantity(id): Observable<any> {    
     return this.http.get(this.base_path + 'users/'+ id + '/cart/quantity');

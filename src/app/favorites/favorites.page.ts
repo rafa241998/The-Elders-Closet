@@ -19,5 +19,12 @@ export class FavoritesPage implements OnInit {
       console.log(this.products);      
     });
   }
+  ionViewWillEnter() {
+    // Get the favorite products
+    this.productService.getFavoriteProducts(1).subscribe(result => {
+      this.products = result;
+      console.log(this.products);      
+    });
+  }
 
 }

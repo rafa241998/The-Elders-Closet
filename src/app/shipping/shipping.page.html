@@ -10,14 +10,14 @@
       </ion-list-header>
       <ion-col>
         <ion-list>
-          <ion-radio-group value="normal">            
+          <ion-radio-group value="free" (click)="selectShipping(value)">            
             <ion-item>
               <ion-label>Envío normal: Gratis</ion-label>
-              <ion-radio  slot="start" color="primary" value="normal"></ion-radio>
+              <ion-radio  slot="start" color="primary" value="free"></ion-radio>
             </ion-item>
   
             <ion-item>
-              <ion-label>Envío Premium: 3,95</ion-label>
+              <ion-label>Envío Premium: 3,95 €</ion-label>
               <ion-radio slot="start" color="primary" value="premium"></ion-radio>
             </ion-item>            
           </ion-radio-group>
@@ -37,16 +37,16 @@
           <ion-card-content>
             <ion-grid>
               <ion-row>
-                {{address.line1}}
+                <ion-text>{{address.line1}}</ion-text>
               </ion-row>
               <ion-row>
-                {{address.line2}}
+                <ion-text>{{address.line2}}</ion-text>
               </ion-row>
               <ion-row>
-                {{address.postal_code}}, {{address.city}} ({{address.country}})
+                <ion-text>{{address.postal_code}}, {{address.city}} ({{address.country}})</ion-text>
               </ion-row>
               <ion-row>
-                Telefono: {{address.phone_number}}
+                <ion-text>Telefono: {{address.phone_number}}</ion-text>
               </ion-row>
             </ion-grid>                                                          
           </ion-card-content>

@@ -21,7 +21,7 @@ export class AddAddressPage implements OnInit {
     this.elForm = this.fb.group({
       line1: ['', Validators.required],
       line2: [''],
-      postal_code: ['', Validators.compose([Validators.required, Validators.min(5)])],
+      postal_code: ['', Validators.compose([Validators.required, Validators.minLength(5)])],
       city: ['', Validators.required],
       country: ['', Validators.required],
       phone_number: ['', Validators.compose([Validators.required, Validators.minLength(9)])]

@@ -5,7 +5,7 @@
 <ion-content>
           
   <ion-item class="ion-text-center">
-    <ion-title>Pago </ion-title>                     
+    <ion-title>Pago Seguro <ion-icon class="iconLock" name="lock-closed-outline"></ion-icon></ion-title>                     
     
   </ion-item>                       
                                    
@@ -54,7 +54,7 @@
         Mes de caducidad:
       </ion-label>
       <ion-item id="rounded">
-        <ion-select value="12" formControlName="month" id="month">
+        <ion-select formControlName="month" id="month">
           <ion-select-option value="1">Enero</ion-select-option>
           <ion-select-option value="2">Febrero</ion-select-option>
           <ion-select-option value="3">Marzo</ion-select-option>
@@ -78,7 +78,7 @@
         Año de caducidad:
       </ion-label>
       <ion-item id="rounded">
-        <ion-select value="1996" formControlName="year" id="year">
+        <ion-select formControlName="year" id="year">
           <ion-select-option value="2020">2020</ion-select-option>
           <ion-select-option value="2021">2021</ion-select-option>
           <ion-select-option value="2022">2022</ion-select-option>
@@ -99,7 +99,7 @@
         CVV:
       </ion-label>
       <ion-item id="rounded">
-        <ion-input pattern="[0-9]*" type="tel" formControlName="cvv" id="cvv"></ion-input>
+        <ion-input pattern="[0-9]*" type="tel" formControlName="cvv" id="cvv" ></ion-input>
       </ion-item>
       <div *ngIf="elForm.get('cvv').touched && elForm.get('cvv').hasError('required')">Obligatorio!
       </div>

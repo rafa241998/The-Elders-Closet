@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class GlobalService {
 
   public cartItems: number;
-
+  public addressId: number;
+  public shipping: number;  
   constructor() { }
 }

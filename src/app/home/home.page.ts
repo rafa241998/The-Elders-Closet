@@ -15,4 +15,16 @@ export class HomePage implements OnInit {
   showSearch() {
     this.router.navigateByUrl("/tabs/search");
   }
+  showFavorites() {
+    this.router.navigateByUrl("/tabs/favorites");
+  }
+  showOrders() {
+    this.router.navigateByUrl("/tabs/orders");
+  }
+  showCart() {
+    this.router.navigateByUrl("/tabs/cart");
+  }
+  showAccount() {
+    this.router.navigateByUrl("/tabs/account");
+  }
 }

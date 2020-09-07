@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GlobalService } from './services/global.service';
 
+import {DatePipe} from '@angular/common';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -21,6 +23,7 @@ import { GlobalService } from './services/global.service';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     GlobalService,
+    DatePipe,
   ],
   bootstrap: [AppComponent]
 })

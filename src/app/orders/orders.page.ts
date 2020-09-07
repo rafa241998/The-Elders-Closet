@@ -19,5 +19,12 @@ export class OrdersPage implements OnInit {
       console.log(this.orders);          
     }); 
   }
+  ionViewWillEnter(){
+    //Get user orders
+    this.orderService.getOrders(1).subscribe(result => {
+      this.orders = result;     
+      console.log(this.orders);          
+    });
+  }
 
 }
