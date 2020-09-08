@@ -17,7 +17,7 @@ export class CartPage implements OnInit {
   
   ngOnInit() {
     //Get elements of the cart
-    this.cartService.getUserCartItems(1).subscribe(result => {
+    this.cartService.getUserCartItems().subscribe(result => {
       this.cartItems = result;     
       console.log(this.cartItems);   
       //Calcular el precio total
@@ -27,7 +27,7 @@ export class CartPage implements OnInit {
   }
   ionViewWillEnter() {
     //Get elements of the cart
-    this.cartService.getUserCartItems(1).subscribe(result => {
+    this.cartService.getUserCartItems().subscribe(result => {
       this.cartItems = result;     
       console.log(this.cartItems);   
       //Calcular el precio total
@@ -37,18 +37,23 @@ export class CartPage implements OnInit {
   addItem(item){
     item.quantity=item.quantity+1;
     this.global.cartItems++;
+    this.cartService.addItemCart(item.id).subscribe(result => {            
+    }); 
     //Calcular el precio total
     this.finalValue = this.cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
   }
   deleteItem(item){
     item.quantity=item.quantity-1;
     this.global.cartItems--;
+    this.cartService.removeItemCart(item.id).subscribe(result => {            
+    });
+
     if(item.quantity == 0){
       //Delete item
       this.cartService.deleteItem(item.id).subscribe(result => {           
         console.log(result);     
         //Reload items
-        this.cartService.getUserCartItems(1).subscribe(result => {
+        this.cartService.getUserCartItems().subscribe(result => {
           this.cartItems = result;     
           console.log(this.cartItems);      
         }); 

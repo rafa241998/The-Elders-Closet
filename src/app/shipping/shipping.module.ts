@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ShippingPageRoutingModule } from './shipping-routing.module';
 
 import { ShippingPage } from './shipping.page';
-import { CustomHeaderComponent } from '../custom-header/custom-header.component';
+import {ComponentsModule} from '../components.module'
 
 @NgModule({
   imports: [
@@ -15,8 +15,9 @@ import { CustomHeaderComponent } from '../custom-header/custom-header.component'
     FormsModule,
     IonicModule,
     ShippingPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComponentsModule
   ],
-  declarations: [ShippingPage, CustomHeaderComponent]
+  declarations: [ShippingPage]
 })
 export class ShippingPageModule {}

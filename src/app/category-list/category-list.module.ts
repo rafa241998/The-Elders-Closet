@@ -7,15 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { CategoryListPageRoutingModule } from './category-list-routing.module';
 
 import { CategoryListPage } from './category-list.page';
-import { CustomHeaderComponent } from '../custom-header/custom-header.component';
+import {ComponentsModule} from '../components.module'
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CategoryListPageRoutingModule
+    CategoryListPageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [CategoryListPage, CustomHeaderComponent]
+  declarations: [CategoryListPage]
 })
 export class CategoryListPageModule {}

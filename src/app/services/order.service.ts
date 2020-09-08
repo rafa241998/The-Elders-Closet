@@ -10,8 +10,8 @@ export class OrderService {
   base_path = "http://127.0.0.1:8000/api/";
   constructor(private http: HttpClient, public global: GlobalService) { }
   
-  getOrders(id): Observable<any> {
-    return this.http.get('http://127.0.0.1:8000/api/users/'+ id +'/orders');
+  getOrders(): Observable<any> {
+    return this.http.get('http://127.0.0.1:8000/api/users/'+ this.global.loggedUser +'/orders');
   }
 
   getProductOrders(id): Observable<any> {

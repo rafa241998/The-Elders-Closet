@@ -7,15 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { CorrectPaymentPageRoutingModule } from './correct-payment-routing.module';
 
 import { CorrectPaymentPage } from './correct-payment.page';
-import { CustomHeaderComponent } from '../custom-header/custom-header.component';
+import {ComponentsModule} from '../components.module'
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CorrectPaymentPageRoutingModule
+    CorrectPaymentPageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [CorrectPaymentPage,CustomHeaderComponent]
+  declarations: [CorrectPaymentPage]
 })
 export class CorrectPaymentPageModule {}

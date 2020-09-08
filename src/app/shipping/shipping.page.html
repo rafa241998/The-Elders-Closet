@@ -10,7 +10,7 @@
       </ion-list-header>
       <ion-col>
         <ion-list>
-          <ion-radio-group value="free" (click)="selectShipping(value)">            
+          <ion-radio-group value="free" (click)="selectShipping($event.value)">            
             <ion-item>
               <ion-label>Envío normal: Gratis</ion-label>
               <ion-radio  slot="start" color="primary" value="free"></ion-radio>
@@ -32,7 +32,8 @@
       <ion-col>
         <ion-card *ngFor="let address of addresses; let i = index" (click)="selectAddress(address.id)" [ngStyle]="{'border':selectedAddress == address.id ? 'solid white' : null }" >        
           <ion-card-header>          
-            <ion-card-title>Dirección {{i+1}}</ion-card-title>
+            <ion-card-title>Dirección {{i+1}} <ion-icon (click)="deleteAddress(address.id)" style="float: right; zoom:2.0;"  name="close-outline"></ion-icon></ion-card-title>
+            
           </ion-card-header>
           <ion-card-content>
             <ion-grid>
@@ -58,8 +59,8 @@
             Agregar dirección
           </ion-button>                                                     
         </ion-col> 
-        <ion-col (click)="goToPayment()"> 
-          <ion-button color="danger" [disabled]="selectedAddress == 0" class= "bottom" expand="full" >
+        <ion-col > 
+          <ion-button (click)="goToPayment()" color="danger" [disabled]="selectedAddress == 0" class= "bottom" expand="full" >
             Continuar y pagar
           </ion-button>                                                     
         </ion-col> 

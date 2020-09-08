@@ -8,15 +8,16 @@ import { FavoritesPageRoutingModule } from './favorites-routing.module';
 
 import { FavoritesPage } from './favorites.page';
 
-import { CustomHeaderComponent } from '../custom-header/custom-header.component';
+import {ComponentsModule} from '../components.module'
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FavoritesPageRoutingModule
+    FavoritesPageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [FavoritesPage, CustomHeaderComponent]
+  declarations: [FavoritesPage]
 })
 export class FavoritesPageModule {}

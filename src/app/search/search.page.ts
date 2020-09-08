@@ -12,7 +12,7 @@ export class SearchPage implements OnInit {
   ngOnInit() {
   }
 
-  showCategories( gender: string) {
+  showCategories() {
     this.router.navigateByUrl("/tabs/categories");
   }
 }

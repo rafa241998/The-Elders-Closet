@@ -61,11 +61,10 @@
         <ion-item id="rounded">
           <ion-input type="tel" pattern="[0-9]*" formControlName="phone_number" id="phone_number"></ion-input>
         </ion-item>
+        
         <div *ngIf="elForm.get('phone_number').touched && elForm.get('phone_number').hasError('required')">Obligatorio!
         </div>
-
         
-
         <ion-button type="submit" [disabled]="!elForm.valid">Añadir Dirección</ion-button>
         
       </form>

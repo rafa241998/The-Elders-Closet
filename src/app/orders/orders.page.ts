@@ -14,14 +14,14 @@ export class OrdersPage implements OnInit {
 
   ngOnInit() {
     //Get user orders
-    this.orderService.getOrders(1).subscribe(result => {
+    this.orderService.getOrders().subscribe(result => {
       this.orders = result;     
       console.log(this.orders);          
     }); 
   }
   ionViewWillEnter(){
     //Get user orders
-    this.orderService.getOrders(1).subscribe(result => {
+    this.orderService.getOrders().subscribe(result => {
       this.orders = result;     
       console.log(this.orders);          
     });

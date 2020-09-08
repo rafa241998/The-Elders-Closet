@@ -14,6 +14,8 @@ import { GlobalService } from './services/global.service';
 
 import {DatePipe} from '@angular/common';
 
+import { CustomHeaderComponent } from './custom-header/custom-header.component';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

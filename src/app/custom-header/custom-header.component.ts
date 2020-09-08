@@ -16,12 +16,15 @@ export class CustomHeaderComponent implements OnInit {
   ngOnInit() {
     
     //Get elements of the cart
-    this.cartService.getUserCartQuantity(1).subscribe(result => {
+    this.cartService.getUserCartQuantity().subscribe(result => {
       this.global.cartItems = result;     
       console.log(this.global.cartItems);      
     });
-     //Get elements of the cart
-     this.cartService.getUserCartQuantity(1).subscribe(result => {
+     
+  }
+  ionViewWillEnter() {
+    //Get elements of the cart
+    this.cartService.getUserCartQuantity().subscribe(result => {
       this.global.cartItems = result;     
       console.log(this.global.cartItems);      
     });

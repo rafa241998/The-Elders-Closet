@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { AddressService } from '../services/address.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-address',
@@ -17,7 +19,7 @@ export class AddAddressPage implements OnInit {
   country: string;
   phone_number: number;
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder, public addressService: AddressService,public router: Router) { 
     this.elForm = this.fb.group({
       line1: ['', Validators.required],
       line2: [''],
@@ -29,6 +31,15 @@ export class AddAddressPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+  addAddress(){
+    this.addressService.setAddress(this.elForm.value).subscribe((result)=>{
+      console.log(result);
+      this.router.navigateByUrl('/tabs/shipping');
+    },
+    (error) => {
+      console.log("Catch error ")
+    });
   }
 
 }

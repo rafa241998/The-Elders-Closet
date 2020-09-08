@@ -17,14 +17,32 @@ export class ShippingPage implements OnInit {
   constructor(private addressService :AddressService, private router: Router, public global: GlobalService) { }
 
   ngOnInit() {
-    //Get elements of the cart
-    this.addressService.getUserAddresses(1).subscribe(result => {
+    //Get Get addresses
+    this.addressService.getUserAddresses().subscribe(result => {
          this.addresses = result
          this.shipping = 0;
     });
   }
+  ionViewWillEnter() {
+    //Get addresses
+    this.addressService.getUserAddresses().subscribe(result => {
+      this.addresses = result
+      this.shipping = 0;
+    });
+  }
   selectAddress(id){
     this.selectedAddress = id;
+  }
+  deleteAddress(id){
+    //Delete address
+    this.addressService.deleteAddress(id).subscribe(result => { 
+      //Get addresses
+      this.addressService.getUserAddresses().subscribe(result => {
+        this.addresses = result
+        this.shipping = 0;
+      });     
+    });
+    
   }
   selectShipping(type){
     if(type == "free"){

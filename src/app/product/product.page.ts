@@ -79,7 +79,7 @@ export class ProductPage implements OnInit {
         message: "Item añadido al carrito",        
         duration: 1000,
       });
-      this.cartService.setUserCartItems(1,cartItem).subscribe(result => {  
+      this.cartService.setUserCartItems(cartItem).subscribe(result => {  
         this.global.cartItems++;
         toast.present();           
         console.log(result);      
@@ -98,7 +98,7 @@ export class ProductPage implements OnInit {
         "price": this.product.price,
         "quantity": 1
       }
-      this.cartService.setUserCartItems(1,cartItem).subscribe(result => {  
+      this.cartService.setUserCartItems(cartItem).subscribe(result => {  
         this.global.cartItems++;             
         console.log(result);      
       }, (err) => {

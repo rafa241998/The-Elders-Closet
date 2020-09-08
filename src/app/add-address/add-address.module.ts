@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AddAddressPageRoutingModule } from './add-address-routing.module';
 
 import { AddAddressPage } from './add-address.page';
-import { CustomHeaderComponent } from '../custom-header/custom-header.component';
+import {ComponentsModule} from '../components.module'
 
 @NgModule({
   imports: [
@@ -15,8 +15,9 @@ import { CustomHeaderComponent } from '../custom-header/custom-header.component'
     FormsModule,
     IonicModule,
     AddAddressPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComponentsModule
   ],
-  declarations: [AddAddressPage, CustomHeaderComponent]
+  declarations: [AddAddressPage]
 })
 export class AddAddressPageModule {}

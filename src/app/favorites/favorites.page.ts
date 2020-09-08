@@ -14,14 +14,14 @@ export class FavoritesPage implements OnInit {
 
   ngOnInit() {
     // Get the favorite products
-    this.productService.getFavoriteProducts(1).subscribe(result => {
+    this.productService.getFavoriteProducts().subscribe(result => {
       this.products = result;
       console.log(this.products);      
     });
   }
   ionViewWillEnter() {
     // Get the favorite products
-    this.productService.getFavoriteProducts(1).subscribe(result => {
+    this.productService.getFavoriteProducts().subscribe(result => {
       this.products = result;
       console.log(this.products);      
     });

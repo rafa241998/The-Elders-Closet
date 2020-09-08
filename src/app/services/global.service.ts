@@ -7,6 +7,8 @@ export class GlobalService {
 
   public cartItems: number;
   public addressId: number;
-  public shipping: number;  
+  public shipping: number;
+  public loggedUser: number;  
+  public api_token: string;
   constructor() { }
 }

@@ -7,15 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { CategoriesPageRoutingModule } from './categories-routing.module';
 
 import { CategoriesPage } from './categories.page';
-import { CustomHeaderComponent } from '../custom-header/custom-header.component';
+import {ComponentsModule} from '../components.module'
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CategoriesPageRoutingModule
+    CategoriesPageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [CategoriesPage, CustomHeaderComponent]
+  declarations: [CategoriesPage]
 })
 export class CategoriesPageModule {}

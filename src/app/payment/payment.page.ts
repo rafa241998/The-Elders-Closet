@@ -43,7 +43,7 @@ export class PaymentPage implements OnInit {
     //Do real payment    
 
     //Get items from the cart    
-    this.cartService.getUserCartItems(1).subscribe(result => {
+    this.cartService.getUserCartItems().subscribe(result => {
       this.cartItems = result;         
       console.log(this.cartItems);   
       //Calcular el precio total
@@ -51,7 +51,7 @@ export class PaymentPage implements OnInit {
 
       //Create a new order
       let order: Order={      
-        "user_id": 1,
+        "user_id": this.global.loggedUser,
         "address_id": this.global.addressId,
         "status": "paid",
         "subTotal": this.subTotal,
@@ -73,7 +73,7 @@ export class PaymentPage implements OnInit {
           this.orderItems.push(orderItem);//Los agrego al nuevo array          
         }   
         //Delete items from the cart
-        this.cartService.deleteCartItems(1).subscribe(result => {
+        this.cartService.deleteCartItems().subscribe(result => {
           //console.log(result);
           this.global.cartItems = 0;
         });
