@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren } from '@angular/core';
 import { AddressService } from 'src/app/services/address.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { GlobalService } from "../services/global.service";
+import { IonRadioGroup } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-shipping',
@@ -14,6 +16,8 @@ export class ShippingPage implements OnInit {
   addresses: Observable<any>;
   selectedAddress = 0;
   shipping = 0;
+  @ViewChildren(IonRadioGroup) radioGroup: IonRadioGroup;
+
   constructor(private addressService :AddressService, private router: Router, public global: GlobalService) { }
 
   ngOnInit() {
@@ -29,7 +33,7 @@ export class ShippingPage implements OnInit {
       this.addresses = result
       this.shipping = 0;
     });
-  }
+  }  
   selectAddress(id){
     this.selectedAddress = id;
   }
@@ -54,12 +58,12 @@ export class ShippingPage implements OnInit {
   goToAddAddress(){
     this.router.navigateByUrl("/tabs/add-address");
   }
-  goToPayment(){
-    
+  goToPayment(){    
     this.global.addressId = this.selectedAddress;
     this.global.shipping = this.shipping;
     console.log(this.global.addressId);
     console.log(this.global.shipping);
+    this.selectedAddress = 0;    
     this.router.navigateByUrl("/tabs/payment");
   }
   

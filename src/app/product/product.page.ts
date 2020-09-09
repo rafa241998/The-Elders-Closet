@@ -45,7 +45,7 @@ export class ProductPage implements OnInit {
     // Get the colors of the product
     this.productService.getProductColors(id).subscribe(result => {
       this.colors = result;
-      this.selectColor(this.colors[0].color.id);
+      this.selectColor(this.colors[0].id);
       console.log(this.colors);      
     });    
    
@@ -99,12 +99,13 @@ export class ProductPage implements OnInit {
         "quantity": 1
       }
       this.cartService.setUserCartItems(cartItem).subscribe(result => {  
-        this.global.cartItems++;             
+        this.global.cartItems++; 
+        this.router.navigateByUrl("/tabs/cart");            
         console.log(result);      
       }, (err) => {
         console.log(err);
       });
-      this.router.navigateByUrl("/tabs/cart");
+      
     }    
   }
   addToFavorites(id){

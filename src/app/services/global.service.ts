@@ -5,10 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class GlobalService {
 
-  public cartItems: number;
-  public addressId: number;
-  public shipping: number;
-  public loggedUser: number;  
-  public api_token: string;
+  public cartItems: number; //Número de items en el carro 
+  public addressId: number; //Dirección a la que se hace el pedido
+  public shipping: number; //Precio del envio
+  public loggedUser: number;  //Usuario logueado actual
+  public api_token: string; //Token de sesión
   constructor() { }
 }

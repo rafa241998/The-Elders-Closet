@@ -48,8 +48,8 @@
         </ion-col>
         <ion-col> 
           <ion-row>            
-            <ion-col *ngFor="let item of colors" (click)="selectColor(item.color.id)">
-              <div class="color-box" style="background-color: {{item.color.hex}};" [ngStyle]="{'border':selectedColor == item.color.id ? 'solid white' : null }"></div> 
+            <ion-col *ngFor="let item of colors" (click)="selectColor(item.id)">
+              <div class="color-box" style="background-color: {{item.color.hex}};" [ngStyle]="{'border':selectedColor == item.id ? 'solid white' : null }"></div> 
             </ion-col>              
           </ion-row>                                                        
         </ion-col>        
